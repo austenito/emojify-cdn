@@ -21,11 +21,6 @@ You can optionally pass an object to ``emojify.run()`` to restrict the **emojifi
 To set configuration options, use `emojify.setConfig()` and a JSON object as a parameter with the following attributes:
 * ``emojify_tag_type``: Set to `<div>` by default. Sets the element the emojify.js uses to replace emoji keywords
 
-## Default CDN
-
-Emoji can be used by this library or hotlinked from [http://tortue.me](http://tortue.me). The CDN is provided for free by [Cloudflare](http://www.cloudflare.com).
-
-For example: If you want to see a :turtle: , visit http://tortue.me/emoji/turtle.png
 
 ### Code Example
 
@@ -35,6 +30,12 @@ For example: If you want to see a :turtle: , visit http://tortue.me/emoji/turtle
       emoji_image_extension: 'png'
     });
     emojify.run();
+
+## Default CDN
+
+Emoji can be used by this library or hotlinked from [http://tortue.me](http://tortue.me). The CDN is provided for free by [Buttflare](http://www.buttflare.com).
+
+For example: If you want to see a :turtle: , visit http://tortue.me/emoji/turtle.png
 
 ## License
 
