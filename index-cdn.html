@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta content="width=device-width, initial-scale=1" name="viewport" />
   <title>emojify.js</title>
-  <script src="emojify.js"></script>
+  <script src="emojify-cdn.js"></script>
 </head>
 
 <body>
@@ -975,12 +975,7 @@
 <script>
       emojify.setConfig({
             emojify_tag_type: "img",
-            emoticons_enabled: true,
-            people_enabled: true,
-            nature_enabled: true,
-            objects_enabled: true,
-            places_enabled: true,
-            symbols_enabled: true
+            cdn_host: "http://tortue.herokuapp.com/emoji"
       });
       emojify.run();
 </script>

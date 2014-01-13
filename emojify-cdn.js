@@ -937,30 +937,19 @@
 
             // Sane defaults
             defaultConfig: {
-                emojify_tag_type: 'div',
-                only_crawl_id: null,
-                emoticons_enabled: true,
-                people_enabled: false,
-                nature_enabled: false,
-                objects_enabled: false,
-                places_enabled: false,
-                symbols_enabled: false
+              emojify_tag_type: 'div',
+              cdn_host: 'http://tortue.me/emoji',
+              emoji_image_extension: 'png'
             },
 
             setConfig: function (newConfig) {
-                this.defaultConfig.emojify_tag_type = typeof newConfig.emojify_tag_type !== 'undefined' ? newConfig.emojify_tag_type : this.defaultConfig.emojify_tag_type;
-                this.defaultConfig.emoticons_enabled = typeof newConfig.emoticons_enabled !== 'undefined' ? newConfig.emoticons_enabled : this.defaultConfig.emoticons_enabled;
-                this.defaultConfig.people_enabled = typeof newConfig.people_enabled !== 'undefined' ? newConfig.people_enabled : this.defaultConfig.people_enabled;
-                this.defaultConfig.nature_enabled = typeof newConfig.nature_enabled !== 'undefined' ? newConfig.nature_enabled : this.defaultConfig.nature_enabled;
-                this.defaultConfig.objects_enabled = typeof newConfig.objects_enabled !== 'undefined' ? newConfig.objects_enabled : this.defaultConfig.objects_enabled;
-                this.defaultConfig.places_enabled = typeof newConfig.places_enabled !== 'undefined' ? newConfig.places_enabled : this.defaultConfig.places_enabled;
-                this.defaultConfig.symbols_enabled = typeof newConfig.symbols_enabled !== 'undefined' ? newConfig.symbols_enabled : this.defaultConfig.symbols_enabled;
-                this.defaultConfig.only_crawl_id = typeof newConfig.only_crawl_id !== 'undefined' ? newConfig.only_crawl_id : this.defaultConfig.only_crawl_id;
+              this.defaultConfig.emojify_tag_type = typeof newConfig.emojify_tag_type !== 'undefined' ? newConfig.emojify_tag_type : this.defaultConfig.emojify_tag_type;
+              this.defaultConfig.cdn_host = typeof newConfig.cdn_host !== 'undefined' ? newConfig.cdn_host : this.defaultConfig.cdn_host;
+              this.defaultConfig.emoji_image_extension = typeof newConfig.emoji_image_extension !== 'undefined' ? newConfig.emoji_image_extension : this.defaultConfig.emoji_image_extension;
             },
 
             // Main method
-            run: function (el) {                            
-                
+            run: function (el) {
                 // Create array of selected icon sets
                 var selected_sets = [];
 
@@ -972,12 +961,12 @@
                     _symbols = symbols.slice(0),
                     _emoticons = emoticons.slice(0);
 
-                if (this.defaultConfig.people_enabled) selected_sets.push(_people);
-                if (this.defaultConfig.nature_enabled) selected_sets.push(_nature);
-                if (this.defaultConfig.objects_enabled) selected_sets.push(_objects);
-                if (this.defaultConfig.places_enabled) selected_sets.push(_places);
-                if (this.defaultConfig.symbols_enabled) selected_sets.push(_symbols);
-                if (this.defaultConfig.emoticons_enabled) selected_sets.push(_emoticons);
+                    selected_sets.push(_people);
+                    selected_sets.push(_nature);
+                    selected_sets.push(_objects);
+                    selected_sets.push(_places);
+                    selected_sets.push(_symbols);
+                    selected_sets.push(_emoticons);
 
                 // Check if an element was not passed.
                 if(typeof el === 'undefined'){
@@ -985,9 +974,9 @@
                     if (this.defaultConfig.only_crawl_id) {
                         el = document.getElementById(this.defaultConfig.only_crawl_id);
                     } else {
-                        el = document.body;    
-                    }                    
-                };                            
+                        el = document.body;
+                    }
+                };
 
                 // Iterate through selected icon sets
                 for (var index = 0; index < selected_sets.length; index++) {
@@ -999,7 +988,7 @@
                             var wrap = document.createElement(this.emojify.defaultConfig.emojify_tag_type);
                             wrap.setAttribute('class', r[1]);
                             title = r[1].replace(/emojify /g, '');
-                            wrap.setAttribute('src', "https://github.global.ssl.fastly.net/images/icons/emoji/" + title + ".png?v5")
+                            wrap.setAttribute('src', this.emojify.defaultConfig.cdn_host + "/" + title + "." + this.emojify.defaultConfig.emoji_image_extension)
                             wrap.setAttribute('title', ':' + title + ':');
                             node.splitText(match.index);
                             node.nextSibling.nodeValue = node.nextSibling.nodeValue.substr(match[0].length, node.nextSibling.nodeValue.length);
