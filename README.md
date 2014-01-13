@@ -19,7 +19,7 @@ You can optionally pass an object to ``emojify.run()`` to restrict the **emojifi
 
 ### Configuration
 To set configuration options, use `emojify.setConfig()` and a JSON object as a parameter with the following attributes:
-* ``emojify_tag_type``: Set to `<div>` by default. Sets the element the emojify.js uses to replace emoji keywords
+* ``emojify_tag_type``: Set to `<img>` by default. Sets the element the emojify.js uses to replace emoji keywords
 
 
 ### Code Example
