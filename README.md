@@ -1,22 +1,24 @@
-emojify.js v0.8.0
-==========
+# emojify-cdn.js
 
-A Javascript module to convert emoji keywords to images.
+A Javascript module to convert emoji keywords to images via a CDN
 
 The emoji keywords are as described by [emoji-cheat-sheet.com](http://www.emoji-cheat-sheet.com).
 
-Go to this project's [GitHub pages](http://hassankhan.github.com/emojify.js) to see the module in action.
+The majority of this project's code is taken from [emojify.js](http://hassankhan.github.com/emojify.js).
 
+This library has no dependencies to work with whatever javascript framework you use (jquery, prototype, etc).
 
 ## Rationale
+
 I wanted [my blog](http://hassankhan.me) to display smileys nicely, decided to use Emojis because they look nice.
 
 
 ## Usage
 Add the required lines to the ``<head>`` part of your HTML code:
 
-    <link rel="stylesheet" type="text/css" href="emojify.css">
-    <script src="emojify.js"></script>
+```
+  <script src="emojify-cdn.js"></script>
+```
 
 Now type in an emoji keyword in your HTML, for example ``:smile:``
 Now run emojify using ``emojify.run()``.
@@ -27,33 +29,16 @@ You can optionally pass an object to ``emojify.run()`` to restrict the **emojifi
 ### Configuration
 To set configuration options, use `emojify.setConfig()` and a JSON object as a parameter with the following attributes:
 * ``emojify_tag_type``: Set to `<div>` by default. Sets the element the emojify.js uses to replace emoji keywords
-* ``emoticons_enabled``: Set to `true` by default. Enables detection of emoticon keywords.
-* ``people_enabled``: Set to `false` by default. Enables detection of emoji people keywords.
-* ``nature_enabled``: Set to `false` by default. Enables detection of emoji nature keywords.
-* ``objects_enabled``: Set to `false` by default. Enables detection of emoji objects keywords.
-* ``places_enabled``: Set to `false` by default. Enables detection of emoji places keywords.
-* ``symbols_enabled``: Set to `false` by default. Enables detection of emoji symbols keywords.
-* ``only_crawl_id``: Set to `null` by default. Restricts searching for emojis to a specified element & it's children.  If null, and no object is passed to run(), `document.body` is used.
 
 ### Code Example
 
     emojify.setConfig({
-        emojify_tag_type: 'img',
-        emoticons_enabled: true,
-        people_enabled: true,
-        nature_enabled: true,
-        objects_enabled: true,
-        places_enabled: true,
-        symbols_enabled: true,
-        only_crawl_id: 'messages_container'  #only do this when you want to restrict where emojify.js applies.
+      emojify_tag_type: 'img'
     });
     emojify.run();
 
-## Dependencies
-This module depends on LESS, or at least requires you to compile the LESS source to CSS.
-
-
 ## License
-Copyright 2012 Hassan Khan
+
+Copyright 2013 Austen Ito
 
 Licensed under the MIT License
