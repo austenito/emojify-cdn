@@ -27,9 +27,17 @@ To set configuration options, use `emojify.setConfig()` and a JSON object as a p
     emojify.setConfig({
       emojify_tag_type: 'img',
       cdn_host: "http://tortue.me/emoji',
-      emoji_image_extension: 'png'
+      emoji_image_extension: 'png',
+      emoticons_enabled: true,
+      people_enabled: true,
+      nature_enabled: true,
+      objects_enabled: true,
+      places_enabled: true,
+      symbols_enabled: true
     });
     emojify.run();
+    
+*Note*: All emoji are enabled by default.
 
 ## Default CDN
 
