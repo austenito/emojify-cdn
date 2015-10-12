@@ -41,7 +41,7 @@ To set configuration options, use `emojify.setConfig()` and a JSON object as a p
 
 ## Default CDN
 
-Emoji can be used by this library or hotlinked from [http://tortue.me](http://tortue.me). The CDN is provided for free by [Buttflare](http://www.buttflare.com).
+Emoji can be used by this library or hotlinked from [http://tortue.me](http://tortue.me). The CDN is provided for free by [Cloudflare](http://www.cloudflare.com).
 
 For example: If you want to see a :turtle: , visit http://tortue.me/emoji/turtle.png
 
